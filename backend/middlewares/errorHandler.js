@@ -11,7 +11,7 @@ const errorHandler = (error, req, res, next) => {
     }
     //IF IT IS A VALIDATION ERROR --> WELL and good!
     if (error instanceof ValidationError){  // tells us the error ka jou object hai whether its og validation type or not 
-        status = 401;
+        status = 422;
         data.message = error.message;
 
         return res.status(status).json(data); 

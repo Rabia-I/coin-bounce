@@ -135,12 +135,16 @@ const authController = {
 
         res.cookie('accessToken', accessToken, {
             maxAge: 1000 * 60 * 60 * 24,
-            httpOnly: true
+            httpOnly: true,
+            sameSite: "None",
+            secure: true,
         });
 
-        res.cookie('refreshToken', refreshToken, {
-            maxAge: 1000 * 60 * 60 * 24,
-            httpOnly: true
+        res.cookie("refreshToken", refreshToken, {
+          maxAge: 1000 * 60 * 60 * 24,
+          httpOnly: true,
+          sameSite: "None",
+          secure: true,
         });
 
         // 6. send res to user
@@ -242,14 +246,18 @@ const authController = {
 
 
 
-        res.cookie('accessToken', accessToken, {
-            maxAge: 1000 * 60 * 60 *24,
-            httpOnly: true
+        res.cookie("accessToken", accessToken, {
+          maxAge: 1000 * 60 * 60 * 24,
+          httpOnly: true,
+          sameSite: "None",
+          secure: true,
         });
 
-        res.cookie('refreshToken', refreshToken, {
-            maxAge: 1000 * 60 * 60 *24,
-            httpOnly: true
+        res.cookie("refreshToken", refreshToken, {
+          maxAge: 1000 * 60 * 60 * 24,
+          httpOnly: true,
+          sameSite: "None",
+          secure: true,
         });
 
 
@@ -348,16 +356,20 @@ const authController = {
 
             await RefreshToken.updateOne({_id:id}, {token: refreshToken});
 
-            res.cookie('accessToken', accessToken, {
-                maxAge: 1000 * 60 * 60* 24,
-                httpOnly: true
-            })
+            res.cookie("accessToken", accessToken, {
+              maxAge: 1000 * 60 * 60 * 24,
+              httpOnly: true,
+              sameSite: "None",
+              secure: true,
+            });
 
 
-            res.cookie('refreshToken', refreshToken, {
-                maxAge: 1000 * 60 * 60* 24,
-                httpOnly: true
-            })
+            res.cookie("refreshToken", refreshToken, {
+              maxAge: 1000 * 60 * 60 * 24,
+              httpOnly: true,
+              sameSite: "None",
+              secure: true,
+            });
 
         } catch(e){
             return next(e);
